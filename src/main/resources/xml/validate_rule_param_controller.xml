@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<!DOCTYPE urls SYSTEM "org/catdou/validate/xml/validate_param_rule_config.dtd">-->
+<urls>
+    <item url="/param/body/{key}" method="post" maxBodySize="1000" sort="0">
+        <urlParams>
+            <param name="taskId" nullable="true">
+                <rules>
+                    <rule name="REGEXP" value="\d+{0,20}" />
+                    <rule name="OGNL" value="taskId &gt;= 1 and taskId &lt;= 10000" />
+                </rules>
+            </param>
+        </urlParams>
+        <pathParams>
+            <param name="{key}">
+                <rules>
+                    <rule name="REGEXP" value="\d+{0,20}" />
+                </rules>
+            </param>
+        </pathParams>
+        <bodyParams>
+            <param name="id">
+                <rules>
+                    <rule name="REGEXP" value="\d+{0,20}" />
+                    <rule name="DEFINE" value="com.scd.mvctest.define.ParamDefineValidator" />
+                </rules>
+            </param>
+        </bodyParams>
+    </item>
+</urls>
