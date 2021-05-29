@@ -26,4 +26,20 @@
             </param>
         </bodyParams>
     </item>
+    <item url="/param//form" method="post" maxBodySize="1000" sort="0">
+        <urlParams>
+            <param name="id">
+                <rules>
+                    <rule name="REGEXP" value="\d+{0,20}" />
+                    <rule name="DEFINE" value="com.scd.mvctest.define.ParamDefineValidator" />
+                </rules>
+            </param>
+            <param name="name">
+                <rules>
+                    <rule name="REGEXP" value="\d+{0,20}" />
+                    <rule name="DEFINE" value="com.scd.mvctest.define.ParamDefineValidator" />
+                </rules>
+            </param>
+        </urlParams>
+    </item>
 </urls>

@@ -1,5 +1,5 @@
 # param-validator for SpringBoot
-[https://github.com/shootercheng/param-validator-demo](https://github.com/shootercheng/param-validator-demo)
+[https://github.com/CatDou/param-validator](https://github.com/CatDou/param-validator)
 
 # add a filter
 
