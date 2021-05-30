@@ -1,6 +1,17 @@
 # param-validator for SpringBoot
 [https://github.com/CatDou/param-validator](https://github.com/CatDou/param-validator)
 
+# Step
+## add dependency
+```xml
+<dependency>
+    <groupId>com.github.catdou</groupId>
+    <artifactId>param-validator</artifactId>
+    <version>1.3-SNAPSHOT</version>      
+</dependency>
+``` 
+## mvn install
+
 # add a filter
 
 ```java
