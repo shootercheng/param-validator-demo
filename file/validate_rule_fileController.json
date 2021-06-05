@@ -1,0 +1,23 @@
+[
+	{
+		"bodyParams":[
+			{
+				"nullable":false
+			}
+		],
+		"checkAllParam":false,
+		"method":"POST",
+		"pathParams":[
+			{
+				"nullable":false
+			}
+		],
+		"sort":0,
+		"url":"/file/upload",
+		"urlParams":[
+			{
+				"nullable":false
+			}
+		]
+	}
+]

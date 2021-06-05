@@ -2,6 +2,8 @@ package com.scd.mvctest.business.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @author James
  */
@@ -10,4 +12,6 @@ public class ParamVO {
     private Long id;
 
     private String name;
+
+    private List<DataVO> list;
 }
