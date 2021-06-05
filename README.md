@@ -2,6 +2,11 @@
 [https://github.com/CatDou/param-validator](https://github.com/CatDou/param-validator)
 
 # Step
+## clone
+```jshelllanguage
+$ git clone https://github.com/CatDou/param-validator
+```
+## mvn install
 ## add dependency
 ```xml
 <dependency>
@@ -10,7 +15,6 @@
     <version>1.3-SNAPSHOT</version>      
 </dependency>
 ``` 
-## mvn install
 
 # add a filter
 
