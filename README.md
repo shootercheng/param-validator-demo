@@ -5,6 +5,7 @@
 ## clone
 ```jshelllanguage
 $ git clone https://github.com/CatDou/param-validator
+$ git clone https://github.com/CatDou/param-validator-generate
 ```
 ## mvn install
 ## add dependency
@@ -12,7 +13,12 @@ $ git clone https://github.com/CatDou/param-validator
 <dependency>
     <groupId>com.github.catdou</groupId>
     <artifactId>param-validator</artifactId>
-    <version>1.3-SNAPSHOT</version>      
+    <version>1.4-SNAPSHOT</version>      
+</dependency>
+<dependency>
+     <groupId>org.catdou</groupId>
+     <artifactId>param-validator-generate</artifactId>
+     <version>1.0-SNAPSHOT</version>
 </dependency>
 ``` 
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<urls>
+<item method="POST" url="/param/form"/>
+<item method="POST" url="/param/body/{key}"/>
+<item method="GET" url="/param/url"/>
+<item method="POST" url="/param/body"/>
+</urls>

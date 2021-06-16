@@ -1,7 +1,10 @@
 package com.scd.mvctest.config;
 
 import org.catdou.param.generate.config.RequestMethodProvider;
+import org.catdou.param.generate.constant.GenTypeEnum;
+import org.catdou.param.generate.core.BaseGenerator;
 import org.catdou.param.generate.core.json.JsonGenerator;
+import org.catdou.param.generate.factory.GenerateFactory;
 import org.catdou.param.generate.model.GenerateParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,15 +23,10 @@ public class GenerateConfig {
 
     public GenerateConfig(List<RequestMappingInfoHandlerMapping> handlerMappings) {
         RequestMethodProvider requestMethodProvider = new RequestMethodProvider(handlerMappings);
-        LOGGER.info("generate config success {}", requestMethodProvider);
-        JsonGenerator jsonGenerator = new JsonGenerator();
+        requestMethodProvider.initHandlerMapping();
         GenerateParam generateParam = new GenerateParam();
-        String path = "file";
-        File file = new File(path);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        generateParam.setParentPath(path);
-        jsonGenerator.generate(generateParam);
+        generateParam.setParentPath("file");
+        BaseGenerator baseGenerator = GenerateFactory.createGenerator(GenTypeEnum.XML);
+        baseGenerator.generate(generateParam);
     }
 }
