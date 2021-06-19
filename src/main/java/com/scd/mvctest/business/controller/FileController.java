@@ -18,7 +18,7 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping(value = "/file")
-@Api(tags = "File Upload Download")
+//@Api(tags = "File Upload Download")
 public class FileController {
     private static final Logger LOGGER = LoggerFactory.getLogger(FileController.class);
 

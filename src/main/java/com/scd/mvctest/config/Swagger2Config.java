@@ -21,20 +21,6 @@ public class Swagger2Config {
 
     @Bean
     public Docket createRestApi() {
-
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.scd.mvctest.business"))
-                .paths(PathSelectors.any())
-                .build();
-    }
-
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .contact(new Contact("chengdu","","3281328128@qq.com"))
-                .license("Apache License 2.0")
-                .version("0.0.1")
-                .build();
+        return new Docket(DocumentationType.SWAGGER_2);
     }
 }
