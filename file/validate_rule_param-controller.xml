@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<urls>
+    <item method="POST" url="/param/body">
+        <bodyParams>
+            <param name="name">
+                <rules/>
+            </param>
+            <param name="id">
+                <rules/>
+            </param>
+            <param name="list">
+                <rules/>
+            </param>
+        </bodyParams>
+    </item>
+    <item method="POST" url="/param/body/{key}">
+        <urlParams>
+            <param name="taskId">
+                <rules/>
+            </param>
+        </urlParams>
+        <pathParams>
+            <param name="{key}">
+                <rules/>
+            </param>
+        </pathParams>
+        <bodyParams>
+            <param name="name">
+                <rules/>
+            </param>
+            <param name="id">
+                <rules/>
+            </param>
+            <param name="list">
+                <rules/>
+            </param>
+        </bodyParams>
+    </item>
+    <item method="POST" url="/param/form">
+        <urlParams>
+            <param name="name">
+                <rules/>
+            </param>
+            <param name="id">
+                <rules/>
+            </param>
+            <param name="list">
+                <rules/>
+            </param>
+        </urlParams>
+    </item>
+    <item method="GET" url="/param/url">
+        <urlParams>
+            <param name="name">
+                <rules/>
+            </param>
+            <param name="id">
+                <rules/>
+            </param>
+            <param name="list">
+                <rules/>
+            </param>
+        </urlParams>
+    </item>
+</urls>

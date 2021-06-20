@@ -1,86 +1,38 @@
 [
 	{
-		"bodyParams":[
-			{
-				"nullable":false
-			}
-		],
+		"bodyParams":[],
 		"checkAllParam":false,
 		"method":"GET",
-		"pathParams":[
-			{
-				"nullable":false
-			}
-		],
+		"pathParams":[],
 		"sort":0,
 		"url":"/param/url",
-		"urlParams":[
-			{
-				"nullable":false
-			}
-		]
+		"urlParams":[]
 	},
 	{
-		"bodyParams":[
-			{
-				"nullable":false
-			}
-		],
+		"bodyParams":[],
 		"checkAllParam":false,
 		"method":"POST",
-		"pathParams":[
-			{
-				"nullable":false
-			}
-		],
+		"pathParams":[],
 		"sort":0,
 		"url":"/param/body",
-		"urlParams":[
-			{
-				"nullable":false
-			}
-		]
+		"urlParams":[]
 	},
 	{
-		"bodyParams":[
-			{
-				"nullable":false
-			}
-		],
+		"bodyParams":[],
 		"checkAllParam":false,
 		"method":"POST",
-		"pathParams":[
-			{
-				"nullable":false
-			}
-		],
+		"pathParams":[],
 		"sort":0,
 		"url":"/param/body/{key}",
-		"urlParams":[
-			{
-				"nullable":false
-			}
-		]
+		"urlParams":[]
 	},
 	{
-		"bodyParams":[
-			{
-				"nullable":false
-			}
-		],
+		"bodyParams":[],
 		"checkAllParam":false,
 		"method":"POST",
-		"pathParams":[
-			{
-				"nullable":false
-			}
-		],
+		"pathParams":[],
 		"sort":0,
 		"url":"/param/form",
-		"urlParams":[
-			{
-				"nullable":false
-			}
-		]
+		"urlParams":[]
 	}
 ]

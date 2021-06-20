@@ -2,6 +2,6 @@
 <urls>
 <item method="GET" url="/param/url"/>
 <item method="POST" url="/param/body"/>
-<item method="POST" url="/param/form"/>
 <item method="POST" url="/param/body/{key}"/>
+<item method="POST" url="/param/form"/>
 </urls>

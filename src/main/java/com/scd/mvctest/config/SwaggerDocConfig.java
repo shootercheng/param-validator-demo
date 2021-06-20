@@ -2,21 +2,18 @@ package com.scd.mvctest.config;
 
 import com.fasterxml.classmate.TypeResolver;
 import com.google.common.base.Function;
-import com.google.common.base.Optional;
-import com.scd.mvctest.business.model.UrlPath;
-import io.swagger.models.Model;
-import io.swagger.models.Operation;
-import io.swagger.models.Path;
 import io.swagger.models.Swagger;
-import io.swagger.models.Tag;
-import io.swagger.models.parameters.Parameter;
+import org.catdou.param.generate.config.SwaggerDataProvider;
+import org.catdou.param.generate.constant.GenTypeEnum;
+import org.catdou.param.generate.core.BaseGenerator;
+import org.catdou.param.generate.factory.GenerateFactory;
+import org.catdou.param.generate.model.GenerateParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.SmartLifecycle;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
 import springfox.documentation.RequestHandler;
 import springfox.documentation.schema.AlternateTypeRule;
 import springfox.documentation.schema.AlternateTypeRuleConvention;
@@ -33,14 +30,10 @@ import springfox.documentation.spring.web.plugins.DefaultConfiguration;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.spring.web.plugins.DocumentationPluginsManager;
 import springfox.documentation.spring.web.scanners.ApiDocumentationScanner;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import springfox.documentation.swagger2.mappers.ServiceModelToSwagger2Mapper;
 
 import javax.servlet.ServletContext;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.google.common.collect.FluentIterable.*;
@@ -67,8 +60,6 @@ public class SwaggerDocConfig implements SmartLifecycle {
 
     private AtomicBoolean initialized = new AtomicBoolean(false);
 
-    @Autowired(required = false)
-    private RequestHandlerCombiner combiner;
     @Autowired(required = false)
     private List<AlternateTypeRuleConvention> typeConventions;
 
@@ -164,42 +155,15 @@ public class SwaggerDocConfig implements SmartLifecycle {
             log.info("Found {} custom documentation plugin(s)", plugins.size());
             Docket docket = new Docket(DocumentationType.SWAGGER_2);
             scanDocumentation(buildContext(docket));
-            String swaggerGroup = null;
-            String groupName = Optional.fromNullable(swaggerGroup).or("default");
+            String groupName = "default";
             Documentation documentation = scanned.documentationByGroup(groupName);
             Swagger swagger = mapper.mapDocumentation(documentation);
-            System.out.println(swagger);
-            List<Tag> tagList = swagger.getTags();
-            Map<String, Model> modelMap = swagger.getDefinitions();
-            Map<String, Path> pathMap = swagger.getPaths();
-            Map<String, List<UrlPath>> tagsPathMap = new HashMap<>();
-            pathMap.forEach((key, path) -> {
-                System.out.println(" url " + key);
-                if (path.getGet() != null) {
-                    putTagPathMap(tagsPathMap, key,"GET",  path.getGet());
-                }
-                if (path.getPost() != null) {
-                    putTagPathMap(tagsPathMap, key,"POST", path.getPost());
-                }
-                if (path.getPut() != null) {
-                    putTagPathMap(tagsPathMap, key,"PUT", path.getPut());
-                }
-                if (path.getDelete() != null) {
-                    putTagPathMap(tagsPathMap, key,"DELETE", path.getDelete());
-                }
-            });
-            // TODO 生成接口参数校验文件
-            System.out.println(tagsPathMap);
-        }
-    }
-
-    private void putTagPathMap(Map<String, List<UrlPath>> tagsPathMap, String key, String method, Operation operation) {
-        List<String> tags = operation.getTags();
-        List<Parameter> parameterList = operation.getParameters();
-        if (!CollectionUtils.isEmpty(tags) && !CollectionUtils.isEmpty(parameterList)) {
-            UrlPath urlPath = new UrlPath(key, method, parameterList);
-            List<UrlPath> urlPathList = tagsPathMap.computeIfAbsent(tags.get(0), k -> new ArrayList<>());
-            urlPathList.add(urlPath);
+            SwaggerDataProvider swaggerDataProvider = new SwaggerDataProvider(swagger);
+            swaggerDataProvider.initSwaggerData();
+            GenerateParam generateParam = new GenerateParam();
+            generateParam.setParentPath("file");
+            BaseGenerator baseGenerator = GenerateFactory.createGenerator(GenTypeEnum.XML_SWAGGER);
+            baseGenerator.generate(generateParam);
         }
     }
 

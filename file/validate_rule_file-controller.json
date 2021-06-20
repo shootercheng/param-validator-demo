@@ -6,6 +6,12 @@
 		"pathParams":[],
 		"sort":0,
 		"url":"/file/upload",
-		"urlParams":[]
+		"urlParams":[
+			{
+				"name":"sequence",
+				"nullable":false,
+				"rules":[]
+			}
+		]
 	}
 ]

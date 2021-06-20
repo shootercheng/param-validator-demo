@@ -1,12 +1,6 @@
 package com.scd.mvctest.business.model;
 
-import io.swagger.models.Path;
-import io.swagger.models.parameters.AbstractParameter;
-import io.swagger.models.parameters.BodyParameter;
-import io.swagger.models.parameters.FormParameter;
 import io.swagger.models.parameters.Parameter;
-import io.swagger.models.parameters.PathParameter;
-import io.swagger.models.parameters.QueryParameter;
 
 import java.util.List;
 
